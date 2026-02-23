@@ -12,9 +12,7 @@ A fully hand-coded, pixel-perfect conversion of a Figma design into a production
 
 ## Figma Design Source
 
-[View the original Figma file →](https://www.figma.com/design/7U270r9r2DgDH0Ohrol7ha/Annerley-Aquarium--Community-?node-id=2002-55)
-
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/7U270r9r2DgDH0Ohrol7ha/Annerley-Aquarium--Community-?node-id=2002-55&embed-host=share" allowfullscreen></iframe>
+<a href="https://www.figma.com/design/7U270r9r2DgDH0Ohrol7ha/Annerley-Aquarium--Community-?node-id=2002-55" target="_blank" rel="noopener noreferrer">View the original Figma file →</a>
 
 ---
 
@@ -99,13 +97,3 @@ aquarium-website/
 ```
 
 ---
-
-## About Me
-
-I'm a front-end developer specialising in pixel-perfect Figma-to-HTML/CSS builds. I take Figma designs and translate them into clean, semantic, accessible, production-ready code — fast.
-
-Looking for Figma-to-website work on **Upwork**. If you have a design that needs to be built, let's talk.
-
----
-
-_Built with care — every pixel intentional._
