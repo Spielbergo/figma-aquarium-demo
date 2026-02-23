@@ -331,6 +331,18 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
    SMOOTH SCROLL — for anchor links
    ==================================================== */
 (function initSmoothScroll() {
+  // Cache nav height to avoid repeated layout queries (reduces forced reflow)
+  let navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72;
+
+  // Update cached value on resize (debounced)
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72;
+    }, 150);
+  }, { passive: true });
+
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
@@ -343,15 +355,17 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
     e.preventDefault();
 
-    const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72;
-    const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    // Read layout once (getBoundingClientRect) and use cached navHeight
+    const top = Math.round(target.getBoundingClientRect().top + window.pageYOffset - navHeight);
 
     window.scrollTo({ top, behavior: 'smooth' });
 
-    // Update focus for accessibility
+    // Update focus for accessibility — defer focus to next frame to avoid layout thrash
     target.setAttribute('tabindex', '-1');
-    target.focus({ preventScroll: true });
-    target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+    requestAnimationFrame(() => {
+      target.focus({ preventScroll: true });
+      target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+    });
   });
 })();
 

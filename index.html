@@ -61,12 +61,19 @@
   }
   </script>
 
+
     <!-- Preconnect for performance -->    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+SC:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Load Google Fonts non-blocking: preload + onload, with noscript fallback -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+SC:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+SC:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </noscript>
 
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- Preload main stylesheet and apply with onload to avoid render-blocking; provide noscript fallback -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 
   <!-- Favicon placeholders -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -153,18 +160,24 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="hero" aria-labelledby="hero-heading">
-        <div class="hero-bg" aria-hidden="true">
-            <picture>
-                <img
-                    src="/images/hero-image.webp"
-                    class="hero-image"
-                    alt="Aquarium fish swimming in a tank with purple/blue background lighting"
-                    width="1920"
-                    height="1280"
-                    loading="eager"
-                    role="presentation"
-            />
-        </div>
+      <div class="hero-bg" aria-hidden="true">
+        <picture>
+          <!-- Desktop -->
+          <source media="(min-width: 900px)" srcset="/images/hero-image.webp">
+          <!-- Tablet -->
+          <source media="(min-width: 480px)" srcset="/images/hero-image-tablet.webp">
+          <!-- Mobile fallback (keeps file small / cropped) -->
+          <img
+            src="/images/hero-image-mob.webp"
+            class="hero-image"
+            alt="Aquarium fish swimming in a tank with purple/blue background lighting"
+            width="1920"
+            height="1280"
+            loading="eager"
+            role="presentation"
+          />
+        </picture>
+      </div>
         <div class="container hero-inner">
             <div class="hero-content">
                 <h1 class="hero-heading" id="hero-heading">
@@ -510,7 +523,8 @@
             <div class="reviews-plain-list" role="list">
 
               <article class="review-plain" role="listitem" aria-label="Customer review by Luke Redman">
-                <div class="review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
+                <div class="review-stars"><span aria-hidden="true">★★★★★</span></div>
+                  <div class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 out of 5 stars</span></div>
                 <blockquote class="review-text">
                   <p>Outstanding customer service. I have been helped by Ellie and William and both have provided great advice. Fantastic selection of tanks, fish, plants and accessories. I have bought and set my 5 gallons aquarium 100% with parts and support from this excellent aquarium shop. 😀👍</p>
                 </blockquote>
@@ -523,7 +537,8 @@
               </article>
 
               <article class="review-plain" role="listitem" aria-label="Customer review by Kate Harding">
-                <div class="review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
+                <div class="review-stars"><span aria-hidden="true">★★★★★</span></div>
+                  <div class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 out of 5 stars</span></div>
                 <blockquote class="review-text">
                   <p>Huge selection of fish and the staff really know their stuff.</p>
                 </blockquote>
@@ -542,7 +557,8 @@
           <div class="reviews-cards" role="list">
 
             <article class="review-card" role="listitem" aria-label="Customer review by Luigi Ginosa">
-              <div class="review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
+              <div class="review-stars"><span aria-hidden="true">★★★★★</span></div>
+                <div class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 out of 5 stars</span></div>
               <blockquote class="review-text">
                 <p>Super knowledgeable staff, very friendly and helpful. Very happy with our experience and will definitely be back.</p>
               </blockquote>
@@ -555,7 +571,8 @@
             </article>
 
             <article class="review-card" role="listitem" aria-label="Customer review by Cassie Hagel">
-              <div class="review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
+              <div class="review-stars"><span aria-hidden="true">★★★★★</span></div>
+                <div class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 out of 5 stars</span></div>
               <blockquote class="review-text">
                 <p>Best fish and accessories in Brisbane. I go there when I want to cheer myself up. I could spend hours in that shop 🪴</p>
               </blockquote>
@@ -737,7 +754,7 @@
 
     <div class="footer-bottom">
       <div class="container">
-        <p class="footer-copyright">&copy; <span id="footer-year"></span>, All right reserved</p>
+        <p class="footer-copyright">&copy; <span id="footer-year"></span> All right reserved</p>
       </div>
     </div>
   </footer>
