@@ -1,6 +1,4 @@
-/* ============================================================
-     ANNERLEY AQUARIUM — style.css
-     ============================================================ */
+/* ========== ANNERLEY AQUARIUM — style.css ========== */
 
 /* ---- CSS Custom Properties ---- */
 :root {
@@ -28,11 +26,12 @@
     --text:         #1a1a2e;
     --text-muted:   #5a5a7a;
 
-    /* Typography */
+    /* Fonts */
     --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
     /* Layout */
-    --container-max: 1240px;
+    /* --container-max: 1240px; */
+    --container-max: 1024px;
     --container-pad: 1.25rem;
     --radius-sm:   0.375rem;
     --radius-md:   0.625rem;
@@ -55,9 +54,7 @@
     --nav-height: 72px;
 }
 
-/* ============================================================
-     RESET & BASE
-     ============================================================ */
+/* ========== RESET & BASE ========== */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -68,6 +65,7 @@ html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     font-size: 16px;
+    overflow-x: clip;
 }
 
 body {
@@ -114,9 +112,7 @@ input, textarea, button, select {
     border-radius: var(--radius-sm);
 }
 
-/* ============================================================
-     ACCESSIBILITY — SKIP LINK
-     ============================================================ */
+/* ========== ACCESSIBILITY — SKIP LINK ========== */
 .skip-link {
     position: absolute;
     top: -100%;
@@ -147,9 +143,7 @@ input, textarea, button, select {
     border: 0;
 }
 
-/* ============================================================
-     LAYOUT — CONTAINER
-     ============================================================ */
+/* ========== LAYOUT — CONTAINER ========== */
 .container {
     width: 100%;
     max-width: var(--container-max);
@@ -168,9 +162,7 @@ input, textarea, button, select {
     }
 }
 
-/* ============================================================
-     TYPOGRAPHY UTILITIES
-     ============================================================ */
+/* ========== TYPOGRAPHY UTILITIES ========== */
 .section-label {
     display: inline-block;
     font-size: 0.75rem;
@@ -190,6 +182,7 @@ input, textarea, button, select {
     margin-bottom: 0.75rem;
 }
 .section-heading {
+    font-family: "PT Sans", sans-serif;
     font-size: 1.875rem;
     font-weight: 900;
     line-height: 1.2;
@@ -204,9 +197,7 @@ input, textarea, button, select {
     .section-heading { font-size: 2.25rem; }
 }
 
-/* ============================================================
-     BUTTONS
-     ============================================================ */
+/* ========== BUTTONS ========== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -235,6 +226,7 @@ input, textarea, button, select {
 .btn-primary:hover, .btn-primary:focus-visible {
     background: linear-gradient(135deg, var(--pink-hover), var(--accent-light));
     box-shadow: 0 4px 20px rgba(200,0,184,0.35);
+    color: #fff;
 }
 
 .btn-outline {
@@ -268,6 +260,7 @@ input, textarea, button, select {
 .btn-nav-cta:hover, .btn-nav-cta:focus-visible {
     background: #2424cc;
     border-color: rgba(255,255,255,0.4);
+    color: #fff;
 }
 
 .btn-sm {
@@ -280,9 +273,7 @@ input, textarea, button, select {
     font-size: 0.75rem;
 }
 
-/* ============================================================
-     HEADER & NAVBAR
-     ============================================================ */
+/* ========== HEADER & NAVBAR ========== */
 .site-header {
     position: fixed;
     top: 0;
@@ -325,8 +316,8 @@ input, textarea, button, select {
 }
 
 .logo-text {
-    font-size: 0.875rem;
-    font-weight: 300;
+    font-size: 1.275rem;
+    font-weight: 500;
     color: var(--white);
     line-height: 1.3;
     letter-spacing: 0.01em;
@@ -342,13 +333,13 @@ input, textarea, button, select {
 .nav-links {
     display: none;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     margin: 0 auto;
 }
 
 .nav-link {
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 300;
     color: rgba(255,255,255,0.75);
     transition: color var(--transition-fast);
     position: relative;
@@ -417,9 +408,7 @@ input, textarea, button, select {
     .hamburger { display: none; }
 }
 
-/* ============================================================
-     MOBILE NAV DRAWER
-     ============================================================ */
+/* ========== MOBILE NAV DRAWER ========== */
 .mobile-nav-overlay {
     position: fixed;
     inset: 0;
@@ -515,9 +504,7 @@ input, textarea, button, select {
     }
 }
 
-/* ============================================================
-     HERO
-     ============================================================ */
+/* ========== HERO ========== */
 .hero {
     position: relative;
     min-height: 100svh;
@@ -547,18 +534,18 @@ input, textarea, button, select {
 .hero-blob-1 {
     width: 500px; height: 500px;
     background: rgba(36,36,204,0.25);
-    top: -100px; right: -100px;
+    background: radial-gradient(circle at 30% 30%, rgba(190,180,255,0.95) 0%, rgba(190,180,255,0.7) 18%, rgba(190,180,255,0.12) 50%, transparent 100%);
+    top: -40px;
+    right: -60px;
 }
 
 .hero-blob-2 {
     width: 350px; height: 350px;
     background: rgba(200,0,184,0.18);
     bottom: -50px; left: -80px;
-}
-
-.hero-inner {
-    position: relative;
-    z-index: 1;
+    background: radial-gradient(circle at 40% 40%, rgba(72,43,231,0.95) 0%, rgba(120,100,230,0.6) 20%, rgba(120,100,230,0.08) 50%, transparent 100%);
+    top: 140px;
+    right: -120px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -568,7 +555,7 @@ input, textarea, button, select {
 }
 
 .hero-content {
-    max-width: 640px;
+    max-width: 690px;
 }
 
 .hero-eyebrow {
@@ -581,21 +568,21 @@ input, textarea, button, select {
 }
 
 .hero-heading {
-      font-family: 'DM Sans', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.75rem);
-    font-weight: 300;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 500;
     font-style: italic;
-    line-height: 1.1;
+    line-height: 1.3;
     color: var(--white);
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: .15em;
 }
 
 .hero-subtext {
     font-size: 1.125rem;
     color: rgba(255,255,255,0.72);
-    margin-bottom: 2rem;
-    max-width: 520px;
+    margin-bottom: 5rem;
+    max-width: 480px;
     line-height: 1.7;
 }
 
@@ -614,38 +601,51 @@ input, textarea, button, select {
 }
 
 .hero-bg img {
+    display: block;
     object-fit: cover;
     object-position: center center;
-    z-index: 0;
-    display: block;
+    z-index: 10;
 }
 
-/* Ensure hero text/content sits above the image */
-.hero-inner { z-index: 1; }
+.hero-inner { 
+    z-index: 100; 
+}
 
 /* On small screens, nudge the image down so the subject stays visible behind the text */
 @media (max-width: 479px) {
-    .hero-bg img { object-position: center 30%; }
+    .hero-bg img { 
+        object-position: center 30%; 
+    }
 }
 
 /* Slightly different crop for tablet */
 @media (min-width: 480px) and (max-width: 899px) {
-    .hero-bg img { object-position: center 40%; }
+    .hero-bg img { 
+        object-position: center 40%; 
+    }
 }
 
 @media (min-width: 900px) {
     .hero-inner {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 4rem;
+    }
+
+    .hero-heading {
+        margin-bottom: 10.5rem;
+    }
+
+    .hero-ctas {
+        padding-left: 50px;
     }
 }
 
-/* ============================================================
-     ABOUT
-     ============================================================ */
+/* ========== ABOUT ========== */
 .about {
     padding: 5rem 0;
     background: var(--white);
+    position: relative;
+    overflow: visible;
 }
 
 .about-inner {
@@ -658,15 +658,14 @@ input, textarea, button, select {
 
 .about-heading {
     font-size: clamp(1rem, 3.5vw, 1.05rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.2;
     color: var(--text);
     margin-bottom: 1.25rem;
 }
 
 .about-text {
-    font-size: .7rem;
-    color: var(--text-muted);
+    font-size: .75rem;
     line-height: 1.8;
     max-width: 560px;
     margin-bottom: 1.5rem;
@@ -679,6 +678,7 @@ input, textarea, button, select {
     text-decoration: none;
     transition: gap var(--transition-base), color var(--transition-fast);
     border: 1px solid #ebeaed;
+    border-radius: var(--radius-full);
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -697,6 +697,71 @@ input, textarea, button, select {
     box-shadow: var(--shadow-lg);
 }
 
+/* Decorative purple dot overlay on about image (centered, responsive) */
+.about-image {
+    position: relative;
+}
+.about-image-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(48px, 8vw, 84px);
+    height: clamp(48px, 8vw, 84px);
+    background: linear-gradient(180deg, #5B2AF7 0%, #3B1EBF 100%);
+    border: 4px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+    box-shadow: 0 20px 60px rgba(72, 43, 231, 0.28);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* About section decorative blobs (right side) — inline SVGs from Figma */
+.about .container { position: relative; z-index: 1; }
+.about-blobs {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 720px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.about-blob {
+    position: absolute;
+    display: block;
+    z-index: 100;
+}
+
+.about-blob-1 {
+    width: 413px;
+    height: 413px;
+    top: -160px;
+    right: 400px;
+}
+
+.about-blob-2 {
+    width: 457px;
+    height: 453px;
+    top: 60px;
+    right: 100px;
+}
+
+@media (max-width: 900px) {
+    .about-blobs { 
+        width: 300px; height: 500px; 
+    }
+
+    .about-blob-1 { 
+        width: 260px; height: 260px; top: -100px; right: 0; 
+    }
+
+    .about-blob-2 { width: 280px; height: 280px; top: 60px; right: -20px; 
+    }
+}
+
 .about-image img {
     width: 100%;
     height: 300px;
@@ -711,18 +776,18 @@ input, textarea, button, select {
 
 @media (min-width: 900px) {
     .about-inner {
-      grid-template-columns: 0.75fr 1.25fr;
+      grid-template-columns: 0.8fr 1.2fr;
       gap: 5rem;
     }
 }
 
-/* ============================================================
-     EXPERT AQUARISTS
-     ============================================================ */
+/* ========== EXPERT AQUARISTS ========== */
 .expert {
-    padding: 5rem 0;
-    background: var(--blue-gradient-bg);    
+    position: relative;
+    padding: 5rem 0; 
     color: #fff;
+    background: var(--blue-gradient-bg);   
+    z-index: 10;
 }
 
 .expert-inner {
@@ -745,6 +810,7 @@ input, textarea, button, select {
 }
 
 .expert-heading {
+    font-family: "PT Sans", sans-serif;
     font-size: clamp(1.25rem, 3.5vw, 2rem);
     font-weight: 900;
     line-height: 1.2;
@@ -758,16 +824,15 @@ input, textarea, button, select {
 }
 
 .expert-text {
-    font-size: .8rem;
+    font-size: .75rem;
     line-height: 1.4;
-    max-width: 420px;
-    opacity: .7;
+    /* max-width: 520px; */
+    opacity: .8;
 }
 
 /* ---- Expert Quote Wrapper ---- */
 .expert-quote-wrapper {
     position: relative;
-    /* padding creates room for the skewed card to peek out */
     padding: 2.5rem .5rem 2.5rem 3rem;
     display: flex;
     align-items: center;
@@ -816,16 +881,48 @@ input, textarea, button, select {
 
 @media (min-width: 900px) {
     .expert-inner {
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: 0.8fr 1.2fr;
     }
 }
 
-/* ============================================================
-     FISH COLLECTION
-     ============================================================ */
+/* ========== FISH COLLECTION ========== */
 .fish-collection {
     padding: 5rem 0;
     background: var(--white);
+}
+
+/* Splash background for Fish Collection: flipped and anchored left */
+.fish-collection {
+    position: relative;
+    overflow: visible;
+}
+.fish-splash {
+    position: absolute;
+    top: 25%;
+    left: 0%;
+    width: 1920px;
+    height: auto;
+    transform: scaleX(-1);
+    /* opacity: 0.14; */
+    pointer-events: none;
+    z-index: 10;
+    filter: blur(58px);
+}
+
+.fish-collection > .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 900px) {
+    .fish-splash {
+        width: 920px;
+        top: -18%;
+        left: -20%;
+        opacity: 0.08;
+        filter: blur(48px);
+        transform: scaleX(-1) translateY(-6%);
+    }
 }
 
 .fish-collection-header {
@@ -1051,9 +1148,9 @@ input, textarea, button, select {
 }
 
 .fish-card-text {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.70);
-    line-height: 1.65;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.35;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -1103,9 +1200,7 @@ input, textarea, button, select {
     gap: 1rem;
 }
 
-/* ============================================================
-     FISH CARE TIPS
-     ============================================================ */
+/* ========== FISH CARE TIPS ========== */
 .fish-care-tips-heading {
     color: var(--reverse-rainbow);
 }
@@ -1143,18 +1238,43 @@ input, textarea, button, select {
 .fish-care-quote-text {
     color: var(--white);
     text-align: left;
-    font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+    font-size: clamp(1.125rem, 1.8vw, 1.7rem);
     font-style: italic;
     font-weight: 500;
-    line-height: 1.55;
+    line-height: 1;
 }
 
-/* ============================================================
-     PRODUCTS
-     ============================================================ */
+/* ========== PRODUCTS ========== */
 .products {
     padding: 5rem 0;
-    background: #ffffff00 url(/images/splash.webp) center right / contain no-repeat;
+    background: transparent;
+    position: relative;
+}
+
+/* Decorative SVG for products section — flipped and anchored top-right */
+.products-splash {
+    position: absolute;
+    top: -10%;
+    right: 0%;
+    width: 100%;
+    height: auto;
+    transform: scaleX(-1);
+    transform: rotate(360deg);
+    /* opacity: 0.12; */
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(58px);
+}
+
+@media (max-width: 900px) {
+    .products-splash {
+        width: 920px;
+        top: -18%;
+        right: -20%;
+        opacity: 0.06;
+        filter: blur(40px);
+        transform: scaleX(-1) translateY(-6%);
+    }
 }
 
 .products .container {
@@ -1333,9 +1453,7 @@ input, textarea, button, select {
     margin-top: auto;
 }
 
-/* ============================================================
-     EXCLUSIVE OFFER
-     ============================================================ */
+/* ========== EXCLUSIVE OFFER ========== */
 .exclusive-offer {
     display: grid;
     grid-template-columns: 1fr;
@@ -1406,9 +1524,7 @@ input, textarea, button, select {
     .exclusive-panel { padding: 4rem 3rem; }
 }
 
-/* ============================================================
-     REVIEWS
-     ============================================================ */
+/* ========== REVIEWS ========== */
 .reviews {
     padding: 5rem 0;
     background: var(--white);
@@ -1421,32 +1537,31 @@ input, textarea, button, select {
     position: absolute;
     top: 0;
     right: 0;
-    width: 480px;
-    height: 480px;
+    width: 500px;
+    height: 720px;
     pointer-events: none;
     z-index: 0;
+    overflow: visible;
 }
 
+/* Shared SVG blob base — blur is baked into the SVG feGaussianBlur */
 .reviews-blob {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(72px);
+    display: block;
 }
 
 .reviews-blob-1 {
-    width: 380px;
-    height: 380px;
-    background: rgba(190, 180, 255, 0.52);
-    top: -80px;
-    right: -60px;
+    width: 413px;
+    height: 413px;
+    top: -160px;
+    right: 200px;
 }
 
 .reviews-blob-2 {
-    width: 240px;
-    height: 240px;
-    background: rgba(120, 100, 230, 0.40);
-    top: 80px;
-    right: -100px;
+    width: 457px;
+    height: 453px;
+    top: 60px;
+    right: -80px;
 }
 
 /* Two-column layout */
@@ -1455,11 +1570,19 @@ input, textarea, button, select {
     z-index: 1;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem 3rem;
 }
 
 @media (min-width: 768px) {
-    .reviews-layout { grid-template-columns: 1fr 1fr; align-items: start; }
+    .reviews-layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        align-items: start;
+    }
+    /* Header: col 1, row 1 — right col row 1 stays empty (natural whitespace) */
+    .reviews-header  { grid-column: 1; grid-row: 1; }
+    .reviews-left    { grid-column: 1; grid-row: 2; }
+    .reviews-cards   { grid-column: 2; grid-row: 2; }
 }
 
 .reviews-left {
@@ -1478,7 +1601,8 @@ input, textarea, button, select {
 }
 
 .reviews-heading {
-    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-family: "PT Sans", sans-serif;
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
     font-weight: 900;
     line-height: 1.15;
     color: var(--text);
@@ -1569,9 +1693,8 @@ input, textarea, button, select {
     font-style: normal;
 }
 
-/* ============================================================
-     CONTACT CTA
-     ============================================================ */
+/* ========== CONTACT CTA
+     ========== */
 .contact-cta {
     padding: 5rem 0;
     background: var(--brand);
@@ -1579,55 +1702,83 @@ input, textarea, button, select {
     overflow: hidden;
 }
 
-/* Grid overlay */
+/* Inset horizontal divider line near the bottom of the section */
+.contact-cta::after {
+    content: '';
+    position: absolute;
+    bottom: 1.5rem;
+    left: 19%;
+    right: 19%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Grid overlay — fades out at all four edges via CSS mask */
 .contact-grid-overlay {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 80px 80px;
+        linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 240px 240px;
+    background-position: 0 0;
     pointer-events: none;
     z-index: 0;
+    /* Fade grid lines to transparent on all four edges */
+    -webkit-mask-image:
+        linear-gradient(to right,  transparent 0%, black 14%, black 86%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+    -webkit-mask-composite: destination-in;
+    mask-image:
+        linear-gradient(to right,  transparent 0%, black 14%, black 86%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+    mask-composite: intersect;
 }
 
-/* Blobs */
+/* Blobs — Figma SVGs, positioned left side (mirrored from about/reviews) */
 .contact-blobs {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 520px;
+    height: 100%;
     pointer-events: none;
     z-index: 0;
+    overflow: visible;
 }
 
+/* Shared SVG blob base — blur baked into SVG feGaussianBlur */
 .contact-blob {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
+    display: block;
 }
 
+/* Blob-1 (purple circle) moves to bottom-left */
 .contact-blob-1 {
-    width: 420px;
-    height: 420px;
-    background: rgba(230, 100, 80, 0.30);
-    bottom: -100px;
-    left: -80px;
+    width: 413px;
+    height: 413px;
+    bottom: -80px;
+    left: 250px;
 }
 
+/* Blob-2 (orange ellipse) moves to top-left */
 .contact-blob-2 {
-    width: 320px;
-    height: 320px;
-    background: rgba(80, 60, 220, 0.35);
-    top: -60px;
-    right: 30%;
+    width: 457px;
+    height: 453px;
+    top: 120px;
+    left: -80px;
 }
 
 .contact-inner {
     position: relative;
-    z-index: 1;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
     align-items: center;
+    gap: 3rem;
+    max-width: 1250px;
+    z-index: 1;
 }
 
 @media (min-width: 900px) {
@@ -1646,6 +1797,7 @@ input, textarea, button, select {
 }
 
 .contact-heading {
+    font-family: "PT Sans", sans-serif;
     font-size: clamp(1.5rem, 3.5vw, 2.25rem);
     font-weight: 900;
     line-height: 1.25;
@@ -1678,10 +1830,11 @@ input, textarea, button, select {
 
 /* Contact Form */
 .contact-form-wrapper {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
     border-radius: var(--radius-xl);
-    padding: 2rem;
+    padding: 2.5rem;
+    backdrop-filter: blur(8px);
 }
 
 .contact-form {
@@ -1713,7 +1866,10 @@ input, textarea, button, select {
     width: 100%;
 }
 
-.form-input::placeholder { color: rgba(255,255,255,0.30); }
+.form-input::placeholder { 
+    color: rgba(255,255,255,0.30); 
+}
+
 .form-input:focus {
     outline: none;
     border-color: var(--pink-cta);
@@ -1721,7 +1877,9 @@ input, textarea, button, select {
     box-shadow: 0 0 0 3px rgba(239,68,118,0.18);
 }
 
-.form-input.is-invalid { border-color: #ff6b6b; }
+.form-input.is-invalid { 
+    border-color: #ff6b6b; 
+}
 
 .form-textarea {
     resize: vertical;
@@ -1764,9 +1922,7 @@ input, textarea, button, select {
     display: none; 
 }
 
-/* ============================================================
-     FOOTER
-     ============================================================ */
+/* ========== FOOTER ========== */
 .site-footer {
     background: var(--brand);
     border-top: 1px solid rgba(255,255,255,0.07);
@@ -1776,6 +1932,7 @@ input, textarea, button, select {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    max-width: 1250px;
     padding-top: 4rem;
     padding-bottom: 2.5rem;
 }
@@ -1839,14 +1996,16 @@ input, textarea, button, select {
     padding: 1.25rem 0;
 }
 
+.footer-bottom .container {
+    max-width: 1250px;
+}
+
 .footer-copyright {
     font-size: 0.875rem;
     color: rgba(255,255,255,0.65);
 }
 
-/* ============================================================
-     SCROLL REVEAL ANIMATIONS
-     ============================================================ */
+/* ========== SCROLL REVEAL ANIMATIONS ========== */
 @media (prefers-reduced-motion: no-preference) {
     .reveal {
         opacity: 0;
@@ -1888,9 +2047,7 @@ input, textarea, button, select {
     }
 }
 
-/* ============================================================
-     REDUCED MOTION — respect user preference
-     ============================================================ */
+/* ========== REDUCED MOTION — respect user preference ========== */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1900,9 +2057,7 @@ input, textarea, button, select {
     }
 }
 
-/* ============================================================
-     HIGH CONTRAST MODE
-     ============================================================ */
+/* ========== HIGH CONTRAST MODE ========== */
 @media (forced-colors: active) {
     .btn-primary,
     .btn-outline,
@@ -1912,9 +2067,7 @@ input, textarea, button, select {
     }
 }
 
-/* ============================================================
-     PRINT STYLES
-     ============================================================ */
+/* ========== PRINT STYLES ========== */
 @media print {
     .site-header,
     .hamburger,
